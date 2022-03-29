@@ -16,7 +16,6 @@ function App() {
   }, [])
 
   const columnas = [
-
     {
       name: 'Codigo',
       selector: row => row.codigo
@@ -28,6 +27,19 @@ function App() {
     {
       name: ' Precio',
       selector: row => row.precio
+    },
+    {
+      name: ' Borrar',
+      selector: row => <button onClick={ () =>  {
+        const index = precio.map(dato => {
+          return dato.codigo === row.codigo;
+        })
+  
+        precio.splice(index, 1);
+        var newPrecio = [];
+        Object.assign(newPrecio, precio);
+        setPrecio(newPrecio);
+      }}>Borrar</button>
     },
   ]
 
